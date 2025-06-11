@@ -7,6 +7,10 @@ using System.Collections.Generic;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rig;
+    [Header("Joystick Settings")]
+    [SerializeField] private MobileJoystick playerJoystick;
+    [Header("Movement Settings")]
+    [SerializeField] private float moveSpeed = 5f; // Speed at which the player moves
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,8 +20,8 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        rig.linearVelocity = playerJoystick.GetMoveVector()*moveSpeed*Time.deltaTime; // Set the velocity based on joystick input, scaled by 5 units per second
     }
 }
