@@ -1,60 +1,51 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
     private Player player;
+    [Header("Move Settings")]
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float playerDetectionRadius;
-    [SerializeField] private ParticleSystem passAwayParticles;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        player = FindFirstObjectByType<Player>();
-        if (player == null)
-        {
-            Debug.Log("No player found.");
-            Destroy(gameObject);
-        }
+   
+ 
+   
 
-        
-    }
+   
+ 
+
 
     // Update is called once per frame
     void Update()
     {
-        FollowPlayer();
-        TryAttack();
+      
+
+        if (player != null)
+        {
+            
+         FollowPlayer();
+        }
+     
+            
+        
     }
+
+    public void StorePlayer(Player _player)
+    {
+        this.player = _player;
+    }
+
 
     private void FollowPlayer()
     {
-        Vector2 direction = (player.transform.position - transform.position).normalized;
+        
 
-        Vector2 targetPostion = (Vector2)transform.position + direction * moveSpeed * Time.deltaTime;
+        Vector2 targetPostion = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
 
         transform.position = targetPostion;
     }
-    private void TryAttack()
-    {
-        float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
-        if (distanceToPlayer <= playerDetectionRadius)
-        {
-            PassAway();
-           
-            Debug.Log("Enemy attacked the player!");
-        }
-    }
-    private void PassAway()
-    {
-        passAwayParticles.transform.SetParent(null);
-        // or passAwayParticles.transform.parent == null;
-        passAwayParticles.Play();
-        Destroy(gameObject);
-    }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, playerDetectionRadius);
-    }
+ 
+
+
+  
 }

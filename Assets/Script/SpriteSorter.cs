@@ -7,6 +7,6 @@ public class SpriteSorter : MonoBehaviour
 
     private void Update()
     {
-        spriteRender.sortingOrder = -(int)(transform.position.y * 100f);
+       // spriteRender.sortingOrder = -(int)(transform.position.y * 100f);
     }
 }
