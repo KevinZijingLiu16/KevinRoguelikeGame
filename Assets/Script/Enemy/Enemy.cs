@@ -1,4 +1,5 @@
 using UnityEngine;
+
 [RequireComponent(typeof(EnemyMovement))]
 public class Enemy : MonoBehaviour
 {
@@ -8,20 +9,23 @@ public class Enemy : MonoBehaviour
 
     [Header("Spawn Sequence")]
     [SerializeField] private SpriteRenderer render;
+
     [SerializeField] private SpriteRenderer spawnIndicator;
 
     [Header("Attack Settings")]
     [SerializeField] private int damage = 1;
+
     [SerializeField] private float attackFrequency;
     private float attackDelay;
     private float attackTimer;
 
     [Header("Pass Away Effects")]
     [SerializeField] private float playerDetectionRadius;
+
     [SerializeField] private ParticleSystem passAwayParticles;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
         enemyMovement = GetComponent<EnemyMovement>();
         player = FindFirstObjectByType<Player>();
@@ -38,7 +42,7 @@ public class Enemy : MonoBehaviour
 
     private void StartSpawnSequence()
     {
-      SetRenderersVisibility(false);
+        SetRenderersVisibility(false);
 
         Vector3 targetScale = spawnIndicator.transform.localScale * 1.5f;
         LeanTween.scale(spawnIndicator.gameObject, targetScale, .3f)
@@ -46,8 +50,7 @@ public class Enemy : MonoBehaviour
             .setOnComplete(SpawnSequenceCompleted);
     }
 
- 
-    void Update()
+    private void Update()
     {
         if (attackTimer > attackDelay)
             TryAttack();
@@ -57,17 +60,18 @@ public class Enemy : MonoBehaviour
 
     private void SpawnSequenceCompleted()
     {
-   
         SetRenderersVisibility(true);
         hasSpawned = true;
 
         enemyMovement.StorePlayer(player);
     }
+
     private void SetRenderersVisibility(bool visibility)
     {
         render.enabled = visibility;
         spawnIndicator.enabled = !visibility;
     }
+
     private void TryAttack()
     {
         float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
@@ -75,19 +79,22 @@ public class Enemy : MonoBehaviour
         {
             Attack();
 
-            Debug.Log("Enemy attacked the player!");
+           // Debug.Log("Enemy attacked the player!");
         }
     }
+
     private void Attack()
     {
-        Debug.Log($"Enemy is attacking the player by {damage}!");
+        //Debug.Log($"Enemy is attacking the player by {damage}!");
         attackTimer = 0f;
+        player.TakeDamage(damage);
     }
+
     private void Wait()
     {
         attackTimer += Time.deltaTime;
-
     }
+
     private void PassAway()
     {
         passAwayParticles.transform.SetParent(null);
@@ -95,8 +102,6 @@ public class Enemy : MonoBehaviour
         passAwayParticles.Play();
         Destroy(gameObject);
     }
-  
-
 
     private void OnDrawGizmosSelected()
     {

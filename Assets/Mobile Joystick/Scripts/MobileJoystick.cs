@@ -1,29 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MobileJoystick : MonoBehaviour
 {
     [Header(" Elements ")]
     [SerializeField] private RectTransform joystickOutline;
+
     [SerializeField] private RectTransform joystickKnob;
 
     [Header(" Settings ")]
     [SerializeField] private float moveFactor;
+
     private Vector3 clickedPosition;
     private Vector3 move;
     private bool canControl;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         HideJoystick();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if(canControl)
+        if (canControl)
             ControlJoystick();
     }
 
@@ -64,7 +64,7 @@ public class MobileJoystick : MonoBehaviour
         moveMagnitude = Mathf.Min(moveMagnitude, realWidth);
 
         move = direction.normalized * moveMagnitude;
-        
+
         Vector3 targetPosition = clickedPosition + move;
 
         joystickKnob.position = targetPosition;
