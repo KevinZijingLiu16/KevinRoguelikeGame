@@ -1,3 +1,5 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyMovement))]
@@ -9,6 +11,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Spawn Sequence")]
     [SerializeField] private SpriteRenderer render;
+    private Color originalColor;
 
     [SerializeField] private SpriteRenderer spawnIndicator;
 
@@ -24,9 +27,21 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private ParticleSystem passAwayParticles;
 
+    [Header("Health Settings")]
+    [SerializeField] private int maxHealth;
+    [SerializeField] private TextMeshPro healthText;
+
+
+    private int health;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        health = maxHealth;
+        if (healthText != null)
+        {
+            healthText.text = maxHealth.ToString();
+        }
         enemyMovement = GetComponent<EnemyMovement>();
         player = FindFirstObjectByType<Player>();
         if (player == null)
@@ -38,6 +53,7 @@ public class Enemy : MonoBehaviour
         StartSpawnSequence();
 
         attackDelay = 1f / attackFrequency;
+        originalColor = render.color;
     }
 
     private void StartSpawnSequence()
@@ -52,6 +68,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+     
         if (attackTimer > attackDelay)
             TryAttack();
         else
@@ -102,10 +119,32 @@ public class Enemy : MonoBehaviour
         passAwayParticles.Play();
         Destroy(gameObject);
     }
+    public void TakeDamage(int damage)
+    {
+        int realDamage = Mathf.Min(damage, health);
+        health -= realDamage;
+        if (healthText != null)
+        {
+            healthText.text = health.ToString();
+        }
+        StartCoroutine(FlashBlack());
+        if ( health <= 0)
+        {
+            
+         PassAway();
+        }
+    }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, playerDetectionRadius);
+    }
+
+    private IEnumerator FlashBlack()
+    {
+       render.color = Color.black;
+        yield return new WaitForSeconds(0.1f); 
+        render.color = originalColor;
     }
 }

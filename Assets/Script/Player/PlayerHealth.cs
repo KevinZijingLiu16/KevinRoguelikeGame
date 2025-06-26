@@ -31,7 +31,9 @@ public class PlayerHealth : MonoBehaviour
     {
         int realDamage = Mathf.Min(damage, health);
         health -= realDamage;
-       // Debug.Log($"Player took {realDamage} damage. Remaining health: {health}");
+        // Vibrate on health drop
+        OnViboration();
+        // Debug.Log($"Player took {realDamage} damage. Remaining health: {health}");
 
         UpdateUI();
 
@@ -53,5 +55,13 @@ public class PlayerHealth : MonoBehaviour
         float healthBarValue = (float)health / maxHealth;
         healthSlider.value = healthBarValue;
         healthText.text = health.ToString();
+    }
+
+    private void OnViboration()
+    {
+        // Implement vibration logic if needed
+#if UNITY_ANDROID || UNITY_IOS
+        Handheld.Vibrate();
+#endif
     }
 }
