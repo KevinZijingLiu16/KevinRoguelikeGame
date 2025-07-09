@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class Enemy : MonoBehaviour
     [Header("Spawn Sequence")]
     [SerializeField] private SpriteRenderer render;
     private Color originalColor;
+    [SerializeField] private Collider2D collider;
 
     [SerializeField] private SpriteRenderer spawnIndicator;
 
@@ -30,6 +32,9 @@ public class Enemy : MonoBehaviour
     [Header("Health Settings")]
     [SerializeField] private int maxHealth;
     [SerializeField] private TextMeshPro healthText;
+
+    [Header("Events")]
+    public static Action<int, Vector2> onDamageTaken;
 
 
     private int health;
@@ -79,7 +84,7 @@ public class Enemy : MonoBehaviour
     {
         SetRenderersVisibility(true);
         hasSpawned = true;
-
+        collider.enabled = true;
         enemyMovement.StorePlayer(player);
     }
 
@@ -127,6 +132,7 @@ public class Enemy : MonoBehaviour
         {
             healthText.text = health.ToString();
         }
+        onDamageTaken?.Invoke(damage, transform.position);
         StartCoroutine(FlashBlack());
         if ( health <= 0)
         {
