@@ -1,19 +1,19 @@
-using NUnit.Framework;
-using NUnit.Framework.Constraints;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    enum State
+    private enum State
     {
         Idle,
         Attack
     }
+
     private State state;
+
     [Header("Weapon Settings")]
     [SerializeField] private float range;
+
     [SerializeField] private BoxCollider2D hitDetectionBoxCollider;
 
     [SerializeField] private LayerMask enemyMask;
@@ -39,11 +39,12 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        switch(state)
+        switch (state)
         {
             case State.Idle:
-               AutoAim();
+                AutoAim();
                 break;
+
             case State.Attack:
                 Attacking();
                 break;
@@ -51,31 +52,31 @@ public class Weapon : MonoBehaviour
         AutoAim();
         Attack();
     }
-    [NaughtyAttributes.Button("Start Attack")]
 
+    [NaughtyAttributes.Button("Start Attack")]
     private void StartAttack()
-    { 
+    {
         animator.Play("Attack");
         state = State.Attack;
         damagedEnemies.Clear();
-        animator.speed = 1f / attackDelay; 
+        animator.speed = 1f / attackDelay;
     }
+
     private void Attacking()
     {
         Attack();
-
     }
+
     [NaughtyAttributes.Button("Stop Attack")]
     private void StopAttack()
-    { 
+    {
         state = State.Idle;
         damagedEnemies.Clear();
     }
 
     private void Attack()
     {
-        
-        Collider2D[] enemies = Physics2D.OverlapBoxAll(hitDetectionPos.position, hitDetectionBoxCollider.bounds.size,hitDetectionPos.localEulerAngles.z, enemyMask);
+        Collider2D[] enemies = Physics2D.OverlapBoxAll(hitDetectionPos.position, hitDetectionBoxCollider.bounds.size, hitDetectionPos.localEulerAngles.z, enemyMask);
         for (int i = 0; i < enemies.Length; i++)
         {
             Enemy currentEnemy = enemies[i].GetComponent<Enemy>();
@@ -83,13 +84,8 @@ public class Weapon : MonoBehaviour
             {
                 currentEnemy.TakeDamage(damage);
                 damagedEnemies.Add(currentEnemy);
-
             }
-
         }
-
-
-
     }
 
     private void AutoAim()
@@ -104,20 +100,19 @@ public class Weapon : MonoBehaviour
         }
         transform.up = Vector3.Lerp(transform.up, targetUpVector, Time.deltaTime * aimLerp);
         IncrementAttackTimer();
-
-
     }
+
     private void IncrementAttackTimer()
     {
         attackTimer += Time.deltaTime;
     }
+
     private void ManageAttack()
     {
-       
         if (attackTimer >= attackDelay)
         {
             attackTimer = 0f;
-           if (state == State.Idle)
+            if (state == State.Idle)
             {
                 StartAttack();
             }
@@ -130,7 +125,7 @@ public class Weapon : MonoBehaviour
 
     private Enemy GetClosestEnemy()
     {
-        Enemy closestEnemy = null;
+       Enemy closestEnemy = null;
 
         //Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, range, enemyMask);

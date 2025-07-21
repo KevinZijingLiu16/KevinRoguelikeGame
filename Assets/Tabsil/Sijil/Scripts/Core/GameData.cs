@@ -1,14 +1,13 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 namespace Tabsil.Sijil
 {
     [Serializable]
     public class GameData
     {
-        [SerializeField] Dictionary<string, GameDataItem> data = new Dictionary<string, GameDataItem>();
+        [SerializeField] private Dictionary<string, GameDataItem> data = new Dictionary<string, GameDataItem>();
 
         public void Add(string key, Type dataType, string value)
         {

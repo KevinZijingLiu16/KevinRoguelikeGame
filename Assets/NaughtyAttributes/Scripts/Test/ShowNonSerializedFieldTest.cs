@@ -5,6 +5,7 @@ namespace NaughtyAttributes.Test
     public class ShowNonSerializedFieldTest : MonoBehaviour
     {
 #pragma warning disable 414
+
         [ShowNonSerializedField]
         private ushort myUShort = ushort.MaxValue;
 
@@ -28,6 +29,7 @@ namespace NaughtyAttributes.Test
 
         [ShowNonSerializedField]
         private static readonly Vector3 CONST_VECTOR = Vector3.one;
+
 #pragma warning restore 414
     }
 }

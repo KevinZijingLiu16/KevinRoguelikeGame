@@ -252,7 +252,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0bd03aa9cf4352e43bc8a83cc6a8c17f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5332,15 +5332,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c09eb80686a77043b74d980bcebf01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
   render: {fileID: 3719592347118186189}
   collider: {fileID: 4885849542335924010}
   spawnIndicator: {fileID: 5661910889007531365}
-  damage: 1
-  attackFrequency: 1
+  defaultFacingRight: 0
   playerDetectionRadius: 2
   passAwayParticles: {fileID: 4560687147195330788}
-  maxHealth: 10
-  healthText: {fileID: 3495957187112171824}
+  damage: 1
+  attackFrequency: 1
 --- !u!58 &4885849542335924010
 CircleCollider2D:
   m_ObjectHideFlags: 0

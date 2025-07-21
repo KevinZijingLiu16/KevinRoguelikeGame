@@ -40,10 +40,14 @@ namespace NaughtyAttributes.Test
         public bool disable2;
         public DisableIfEnum enum1;
         [EnumFlags] public DisableIfEnumFlag enum2;
-        public bool Disable1 { get { return disable1; } }
-        public bool Disable2 { get { return disable2; } }
-        public DisableIfEnum Enum1 { get { return enum1; } }
-        public DisableIfEnumFlag Enum2 { get { return enum2; } }
+        public bool Disable1
+        { get { return disable1; } }
+        public bool Disable2
+        { get { return disable2; } }
+        public DisableIfEnum Enum1
+        { get { return enum1; } }
+        public DisableIfEnumFlag Enum2
+        { get { return enum2; } }
 
         [DisableIf(EConditionOperator.And, "Disable1", "Disable2")]
         [AllowNesting] // Because it's nested we need to explicitly allow nesting
@@ -75,10 +79,18 @@ namespace NaughtyAttributes.Test
         public bool disable2;
         public DisableIfEnum enum1;
         [EnumFlags] public DisableIfEnumFlag enum2;
-        public bool GetDisable1() { return disable1; }
-        public bool GetDisable2() { return disable2; }
-        public DisableIfEnum GetEnum1() { return enum1; }
-        public DisableIfEnumFlag GetEnum2() { return enum2; }
+
+        public bool GetDisable1()
+        { return disable1; }
+
+        public bool GetDisable2()
+        { return disable2; }
+
+        public DisableIfEnum GetEnum1()
+        { return enum1; }
+
+        public DisableIfEnumFlag GetEnum2()
+        { return enum2; }
 
         [DisableIf(EConditionOperator.And, "GetDisable1", "GetDisable2")]
         [MinMaxSlider(0.0f, 1.0f)] // AllowNesting attribute is not needed, because the field is already marked with a custom naughty property drawer

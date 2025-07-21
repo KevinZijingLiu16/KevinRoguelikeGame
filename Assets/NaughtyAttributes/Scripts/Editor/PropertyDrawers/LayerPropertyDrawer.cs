@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
 using UnityEditor;
-using System;
+using UnityEngine;
 
 namespace NaughtyAttributes.Editor
 {
@@ -27,9 +27,11 @@ namespace NaughtyAttributes.Editor
                 case SerializedPropertyType.String:
                     DrawPropertyForString(rect, property, label, GetLayers());
                     break;
+
                 case SerializedPropertyType.Integer:
                     DrawPropertyForInt(rect, property, label, GetLayers());
                     break;
+
                 default:
                     string message = string.Format(TypeWarningMessage, property.name);
                     DrawDefaultPropertyAndHelpBox(rect, property, message, MessageType.Warning);

@@ -5,7 +5,7 @@ namespace NaughtyAttributes.Editor
 {
     public abstract class PropertyDrawerBase : PropertyDrawer
     {
-        public sealed override void OnGUI(Rect rect, SerializedProperty property, GUIContent label)
+        public override sealed void OnGUI(Rect rect, SerializedProperty property, GUIContent label)
         {
             // Check if visible
             bool visible = PropertyUtility.IsVisible(property);
@@ -39,7 +39,7 @@ namespace NaughtyAttributes.Editor
 
         protected abstract void OnGUI_Internal(Rect rect, SerializedProperty property, GUIContent label);
 
-        sealed override public float GetPropertyHeight(SerializedProperty property, GUIContent label)
+        public override sealed float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
             bool visible = PropertyUtility.IsVisible(property);
             if (!visible)

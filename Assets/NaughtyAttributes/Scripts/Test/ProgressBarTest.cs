@@ -14,6 +14,7 @@ namespace NaughtyAttributes.Test
         [Header("Dynamic ProgressBar")]
         [ProgressBar("Elixir", "maxElixir", color: EColor.Violet)]
         public int elixir = 50;
+
         public int maxElixir = 100;
     }
 

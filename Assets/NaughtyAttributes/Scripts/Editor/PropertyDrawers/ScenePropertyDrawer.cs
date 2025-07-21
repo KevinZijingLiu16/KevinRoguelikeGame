@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿using System;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System;
+using UnityEditor;
+using UnityEngine;
 
 namespace NaughtyAttributes.Editor
 {
@@ -42,9 +42,11 @@ namespace NaughtyAttributes.Editor
                 case SerializedPropertyType.String:
                     DrawPropertyForString(rect, property, label, scenes, sceneOptions);
                     break;
+
                 case SerializedPropertyType.Integer:
                     DrawPropertyForInt(rect, property, label, sceneOptions);
                     break;
+
                 default:
                     string message = string.Format(TypeWarningMessage, property.name);
                     DrawDefaultPropertyAndHelpBox(rect, property, message, MessageType.Warning);

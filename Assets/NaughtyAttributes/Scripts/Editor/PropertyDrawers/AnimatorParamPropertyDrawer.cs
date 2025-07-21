@@ -52,9 +52,11 @@ namespace NaughtyAttributes.Editor
                 case SerializedPropertyType.Integer:
                     DrawPropertyForInt(rect, property, label, animatorParameters);
                     break;
+
                 case SerializedPropertyType.String:
                     DrawPropertyForString(rect, property, label, animatorParameters);
                     break;
+
                 default:
                     DrawDefaultPropertyAndHelpBox(rect, property, string.Format(InvalidTypeWarningMessage, property.name), MessageType.Warning);
                     break;

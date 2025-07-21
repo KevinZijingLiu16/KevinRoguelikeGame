@@ -3,7 +3,6 @@ using System.Collections;
 using System.Linq;
 using System.Reflection;
 using UnityEditor;
-using UnityEditor.Experimental.SceneManagement;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
@@ -368,9 +367,11 @@ namespace NaughtyAttributes.Editor
                 case MessageType.Info:
                     Debug.Log(message, context);
                     break;
+
                 case MessageType.Warning:
                     Debug.LogWarning(message, context);
                     break;
+
                 case MessageType.Error:
                     Debug.LogError(message, context);
                     break;

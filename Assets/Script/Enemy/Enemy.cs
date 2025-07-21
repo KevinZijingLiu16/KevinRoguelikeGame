@@ -1,52 +1,44 @@
 using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyMovement))]
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
-    private Player player;
-    private bool hasSpawned = false;
-    private EnemyMovement enemyMovement;
-
-    [Header("Spawn Sequence")]
-    [SerializeField] private SpriteRenderer render;
-    private Color originalColor;
-    [SerializeField] private Collider2D collider;
-
-    [SerializeField] private SpriteRenderer spawnIndicator;
-
-    [Header("Attack Settings")]
-    [SerializeField] private int damage = 1;
-
-    [SerializeField] private float attackFrequency;
-    private float attackDelay;
-    private float attackTimer;
-
-    [Header("Pass Away Effects")]
-    [SerializeField] private float playerDetectionRadius;
-
-    [SerializeField] private ParticleSystem passAwayParticles;
+    [Header("Component")]
+    protected EnemyMovement enemyMovement;
 
     [Header("Health Settings")]
-    [SerializeField] private int maxHealth;
-    [SerializeField] private TextMeshPro healthText;
+    [SerializeField] protected int maxHealth;
+
+    protected int health;
+
+    [Header("Elements")]
+    protected Player player;
+
+    [Header("Spawn Sequence")]
+    [SerializeField] protected SpriteRenderer render;
+
+    [SerializeField] protected Collider2D collider;
+    [SerializeField] protected SpriteRenderer spawnIndicator;
+    protected bool hasSpawned = false;
+
+    [Header("Facing Direction")]
+    [SerializeField] private bool defaultFacingRight = true;
+
+    [Header("Attack")]
+    [SerializeField] protected float playerDetectionRadius;
+
+    [Header("Effects")]
+    [SerializeField] protected ParticleSystem passAwayParticles;
+    protected Color originalColor;
 
     [Header("Events")]
     public static Action<int, Vector2> onDamageTaken;
 
-
-    private int health;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
+    protected virtual void Start()
     {
         health = maxHealth;
-        if (healthText != null)
-        {
-            healthText.text = maxHealth.ToString();
-        }
         enemyMovement = GetComponent<EnemyMovement>();
         player = FindFirstObjectByType<Player>();
         if (player == null)
@@ -56,11 +48,15 @@ public class Enemy : MonoBehaviour
         }
 
         StartSpawnSequence();
-
-        attackDelay = 1f / attackFrequency;
         originalColor = render.color;
     }
 
+    // Update is called once per frame
+    protected bool CanAttack()
+    {
+        return render.enabled && hasSpawned;    
+    }
+  
     private void StartSpawnSequence()
     {
         SetRenderersVisibility(false);
@@ -69,15 +65,6 @@ public class Enemy : MonoBehaviour
         LeanTween.scale(spawnIndicator.gameObject, targetScale, .3f)
             .setLoopPingPong(4)
             .setOnComplete(SpawnSequenceCompleted);
-    }
-
-    private void Update()
-    {
-     
-        if (attackTimer > attackDelay)
-            TryAttack();
-        else
-            Wait();
     }
 
     private void SpawnSequenceCompleted()
@@ -94,27 +81,17 @@ public class Enemy : MonoBehaviour
         spawnIndicator.enabled = !visibility;
     }
 
-    private void TryAttack()
+    public void TakeDamage(int damage)
     {
-        float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
-        if (distanceToPlayer <= playerDetectionRadius)
+        int realDamage = Mathf.Min(damage, health);
+        health -= realDamage;
+
+        onDamageTaken?.Invoke(damage, transform.position);
+        StartCoroutine(FlashBlack());
+        if (health <= 0)
         {
-            Attack();
-
-           // Debug.Log("Enemy attacked the player!");
+            PassAway();
         }
-    }
-
-    private void Attack()
-    {
-        //Debug.Log($"Enemy is attacking the player by {damage}!");
-        attackTimer = 0f;
-        player.TakeDamage(damage);
-    }
-
-    private void Wait()
-    {
-        attackTimer += Time.deltaTime;
     }
 
     private void PassAway()
@@ -124,21 +101,21 @@ public class Enemy : MonoBehaviour
         passAwayParticles.Play();
         Destroy(gameObject);
     }
-    public void TakeDamage(int damage)
+
+    protected void FacePlayer()
     {
-        int realDamage = Mathf.Min(damage, health);
-        health -= realDamage;
-        if (healthText != null)
-        {
-            healthText.text = health.ToString();
-        }
-        onDamageTaken?.Invoke(damage, transform.position);
-        StartCoroutine(FlashBlack());
-        if ( health <= 0)
-        {
-            
-         PassAway();
-        }
+        if (player == null) return;
+
+        bool shouldFaceRight = player.transform.position.x > transform.position.x;
+        float baseScaleX = Mathf.Abs(transform.localScale.x);
+
+        float finalScaleX = defaultFacingRight
+            ? (shouldFaceRight ? baseScaleX : -baseScaleX)
+            : (shouldFaceRight ? -baseScaleX : baseScaleX);
+
+        Vector3 scale = transform.localScale;
+        scale.x = finalScaleX;
+        transform.localScale = scale;
     }
 
     private void OnDrawGizmosSelected()
@@ -149,8 +126,8 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator FlashBlack()
     {
-       render.color = Color.black;
-        yield return new WaitForSeconds(0.1f); 
+        render.color = Color.black;
+        yield return new WaitForSeconds(0.1f);
         render.color = originalColor;
     }
 }

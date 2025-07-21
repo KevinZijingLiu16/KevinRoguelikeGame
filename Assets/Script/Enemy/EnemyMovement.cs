@@ -10,10 +10,10 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (player != null)
-        {
-            FollowPlayer();
-        }
+        //if (player != null)
+        //{
+        //    FollowPlayer();
+        //}
     }
 
     public void StorePlayer(Player _player)
@@ -21,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
         this.player = _player;
     }
 
-    private void FollowPlayer()
+    public void FollowPlayer()
     {
         Vector2 targetPostion = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
 
