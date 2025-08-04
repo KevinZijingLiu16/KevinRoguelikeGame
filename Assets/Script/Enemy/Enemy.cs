@@ -33,7 +33,8 @@ public abstract class Enemy : MonoBehaviour
     protected Color originalColor;
 
     [Header("Events")]
-    public static Action<int, Vector2> onDamageTaken;
+    public static Action<int, Vector2, bool> onDamageTaken;
+    public static Action<Vector2> onPassedAway;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected virtual void Start()
@@ -81,12 +82,12 @@ public abstract class Enemy : MonoBehaviour
         spawnIndicator.enabled = !visibility;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, bool isCriticalHit)
     {
         int realDamage = Mathf.Min(damage, health);
         health -= realDamage;
 
-        onDamageTaken?.Invoke(damage, transform.position);
+        onDamageTaken?.Invoke(damage, transform.position, isCriticalHit);
         StartCoroutine(FlashBlack());
         if (health <= 0)
         {
@@ -96,6 +97,7 @@ public abstract class Enemy : MonoBehaviour
 
     private void PassAway()
     {
+        onPassedAway?.Invoke(transform.position);
         passAwayParticles.transform.SetParent(null);
         // or passAwayParticles.transform.parent == null;
         passAwayParticles.Play();

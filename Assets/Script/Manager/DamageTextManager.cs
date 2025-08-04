@@ -11,12 +11,12 @@ public class DamageTextManager : MonoBehaviour
 
     private void Awake()
     {
-        MeleeEnemy.onDamageTaken += EnemyHitCallback;
+        Enemy.onDamageTaken += EnemyHitCallback;
     }
 
     private void OnDestroy()
     {
-        MeleeEnemy.onDamageTaken -= EnemyHitCallback;
+        Enemy.onDamageTaken -= EnemyHitCallback;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -45,13 +45,13 @@ public class DamageTextManager : MonoBehaviour
         Destroy(damageTextEffect.gameObject);
     }
 
-    private void EnemyHitCallback(int damage, Vector2 enemyPosition)
+    private void EnemyHitCallback(int damage, Vector2 enemyPosition, bool isCriticalHit)
     {
         DamageTextEffect damageTextInstance = damageTextEffectPool.Get();
         Vector3 spawnPosition = enemyPosition + Vector2.up * 1.5f;
         damageTextInstance.transform.position = spawnPosition;
 
-        damageTextInstance.Animate(damage);
+        damageTextInstance.Animate(damage, isCriticalHit);
 
         LeanTween.delayedCall(1, () => damageTextEffectPool.Release(damageTextInstance));
     }
