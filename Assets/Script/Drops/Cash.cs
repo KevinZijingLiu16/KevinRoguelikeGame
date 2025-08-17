@@ -1,13 +1,12 @@
-using System;
 using System.Collections;
 using UnityEngine;
+using System;
 
-public class CandySoul : DroppableCurreny
+public class Cash : DroppableCurreny
 {
-
     [Header("Actions")]
-    public static Action<CandySoul> onCollected;
-
+    public static Action<Cash> onCollected;
+   
     protected override void Collectted()
     {
         onCollected?.Invoke(this);

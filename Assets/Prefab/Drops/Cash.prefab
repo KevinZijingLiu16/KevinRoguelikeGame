@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1044828313874283928}
   - component: {fileID: 2975669453427688255}
-  - component: {fileID: 6097813745758837727}
+  - component: {fileID: 8343583064459921011}
   m_Layer: 0
-  m_Name: EnemySoul
+  m_Name: Cash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.0324326, y: 1.8780849, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 834028860347103906}
@@ -69,8 +69,8 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.18761533}
-  m_Radius: 3
---- !u!114 &6097813745758837727
+  m_Radius: 3.13
+--- !u!114 &8343583064459921011
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,10 +79,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3826338878808001078}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14b5b569c0d0f4940a8bae3779338a32, type: 3}
+  m_Script: {fileID: 11500000, guid: 47557869d6dcc5744b9cf9a93585c136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 3
 --- !u!1 &6145459691396836299
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,9 +93,9 @@ GameObject:
   m_Component:
   - component: {fileID: 834028860347103906}
   - component: {fileID: 8954757770743194127}
-  - component: {fileID: 3168659472160734337}
+  - component: {fileID: 6507306374576800156}
   m_Layer: 0
-  m_Name: EnemySoulRender
+  m_Name: CashRender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +160,7 @@ SpriteRenderer:
   m_SortingLayerID: 257283199
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0db002c632d5f5948a60137346a98e07, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2fd0477370fe8ba4d88d220d75b7f32e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -171,7 +171,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &3168659472160734337
+--- !u!95 &6507306374576800156
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ Animator:
   m_GameObject: {fileID: 6145459691396836299}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0320abf92d2e1964a87d62060269e8a3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 063123aae839a2049890506dfb7cc129, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

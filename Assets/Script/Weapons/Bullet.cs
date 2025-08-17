@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class Bullet : MonoBehaviour
@@ -16,6 +17,11 @@ public class Bullet : MonoBehaviour
     [SerializeField] private LayerMask enemyMask;
     private Enemy target;
     private bool isCriticalHit;
+
+    public static event Action<Bullet> OnBulletShot;
+    public static event Action<Bullet> OnBulletReleased;
+
+
 
     private void Awake()
     {
@@ -43,6 +49,8 @@ public class Bullet : MonoBehaviour
         transform.right = direction;
     
         rig.linearVelocity = direction * moveSpeed;
+
+        OnBulletShot?.Invoke(this);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -89,6 +97,8 @@ public class Bullet : MonoBehaviour
         {
            return;
         }
+
+        OnBulletReleased?.Invoke(this);
         rangeWeapon.ReleaseBullet(this);
       
     }
