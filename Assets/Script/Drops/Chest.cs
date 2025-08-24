@@ -12,20 +12,27 @@ public class Chest : MonoBehaviour, ICollectable
 
     [Header("Effects")]
     [SerializeField] private ParticleSystem openEffect;
-
-
+  
     public void Collect(Player player)
     {
-      onCollected?.Invoke();
-        // Play collect animation
+        onCollected?.Invoke();
+
         animator.SetBool("IsOpen", true);
 
         if (openEffect != null)
         {
+            var force = openEffect.forceOverLifetime;
+            force.enabled = true;
+
+            Vector3 dir = (player.transform.position - openEffect.transform.position).normalized;
+
+            force.x = new ParticleSystem.MinMaxCurve(dir.x * 1f);
+            force.y = new ParticleSystem.MinMaxCurve(dir.y * 1f);
+            
+
             openEffect.Play();
         }
-        // Play collect sound
-        // Add rewards to player inventory
+
         StartCoroutine(DestroyAfterAnimation());
     }
 
