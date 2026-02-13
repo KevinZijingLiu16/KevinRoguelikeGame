@@ -8,7 +8,9 @@ using NaughtyAttributes;
 public class WaveTransitionManager : MonoBehaviour, IGameStateListener
 {
     [Header("Elements")]
+    [SerializeField] private PlayerStatsManager playerStatsManager;
     [SerializeField] private UpgradeContainer[] upgradeContainers;
+
     public void GameStateChangedCallback(GameState gameState)
     {
         switch (gameState)
@@ -28,29 +30,90 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
             Stat stat = (Stat)Enum.GetValues(typeof(Stat)).GetValue(randomIndex);
 
             string randomStatString = Enums.FormatStatName(stat);
-            upgradeContainers[i].Configure(null, randomStatString, Random.Range(0,100).ToString());
 
-            Action action = GetActionToPerform(stat);
+            string buttonString;
+            Action action = GetActionToPerform(stat, out buttonString);
+
+            upgradeContainers[i].Configure(null, randomStatString, buttonString);
+
 
             upgradeContainers[i].Button.onClick.RemoveAllListeners();
 
             upgradeContainers[i].Button.onClick.AddListener(() => action?.Invoke());
 
+            upgradeContainers[i].Button.onClick.AddListener(() => BonusSelectiodCallback());
+
         }
     }
 
-    private Action GetActionToPerform(Stat stat)
+    private void BonusSelectiodCallback()
     {
+        GameManager.instance.WaveCompletedCallback();
+    }
+
+    private Action GetActionToPerform(Stat stat, out string buttonString)
+    {
+        buttonString = "";
+        float value;
+                value = Random.Range(1, 10);
+                buttonString = "+" + value.ToString() + "%";
+
         switch (stat)
-        { 
+        {
+            
             case Stat.Attack:
-                return () => Debug.Log("Improving Attack by " + 5);
+                value = Random.Range(1, 10);
+                break;
 
-                case Stat.AttackSpeed:
-                    return () => Debug.Log("Improving AttackSpeed by " + 5);
 
-                case Stat.CriticalChance:
-                    return () => Debug.Log("Improving CriticalChance by " + 5);
+
+            case Stat.AttackSpeed:
+                value = Random.Range(1, 10);
+                break;
+
+            case Stat.CriticalChance:
+                value = Random.Range(1, 10);
+                break;
+
+            case Stat.CriticalPercent:
+                value = Random.Range(1f, 5f);
+                buttonString = "+" + value.ToString("F2") + "X";
+                break;
+
+            case Stat.MoveSpeed:
+                value = Random.Range(1, 10);
+                break;
+
+            case Stat.MaxHealth:
+                value = Random.Range(1, 10);
+                buttonString = "+" + value;
+                break;
+
+            case Stat.Range:
+                value = Random.Range(1f, 10f);
+                buttonString = "+" + value.ToString("F2");
+                break;
+
+            case Stat.HealthRecoverySpeed:
+                value = Random.Range(1, 10);
+                break;
+
+            case Stat.Armor:
+                value = Random.Range(1, 10);
+                break;
+
+            case Stat.Luck:
+                value = Random.Range(1, 10);
+                break;
+
+            case Stat.Dodge:
+                value = Random.Range(1, 10);
+                break;
+
+            case Stat.LifeSteal:
+                value = Random.Range(1, 10);
+                break;
+
 
             default:
                 return () => Debug.Log("Invalid stat" );
@@ -59,6 +122,9 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
 
 
         }
+
+        return () => playerStatsManager.AddPlayerStats(stat, value);
+        
     }
 
 

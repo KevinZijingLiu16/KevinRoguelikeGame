@@ -3,10 +3,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
 {
     [Header("Health Settings")]
-    [SerializeField] private int maxHealth;
+
+    [SerializeField] int baseMaxHealth = 100;
+    private int maxHealth;
 
     private int health;
 
@@ -18,8 +20,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        health = maxHealth;
-        UpdateUI();
+        
     }
 
     // Update is called once per frame
@@ -61,5 +62,15 @@ public class PlayerHealth : MonoBehaviour
 #if UNITY_ANDROID || UNITY_IOS
         Handheld.Vibrate();
 #endif
+    }
+
+    public void UpdateStats(PlayerStatsManager playerStatsManager)
+    {
+        float addedHealth = playerStatsManager.GetStatValue(Stat.MaxHealth);
+        maxHealth = baseMaxHealth + (int)addedHealth;
+        maxHealth = Mathf.Max(maxHealth, 1); // Ensure maxHealth is at least 1
+
+        health = maxHealth;
+        UpdateUI();
     }
 }

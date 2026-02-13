@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b75a73282595980488dc1ac6c480a142, type: 3}
+  m_Name: CharacterData
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Dave
+  <Sprite>k__BackingField: {fileID: 21300000, guid: b2c151811d4bb19449fc34bcbd73d7f0, type: 3}
+  <PurchasePrice>k__BackingField: 0
+  attack: 5
+  attackSpeed: 1
+  criticalChance: -1
+  criticalPercent: 0
+  moveSpeed: 0
+  maxHealth: -1
+  range: 0
+  healthRecoverySpeed: 0
+  armor: 0
+  luck: 0
+  dodge: 0
+  lifeSteal: 0
