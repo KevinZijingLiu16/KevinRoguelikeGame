@@ -1,9 +1,10 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using Random = UnityEngine.Random;
 public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
 {
     [Header("Health Settings")]
@@ -15,6 +16,13 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
    private float armor;
 
    private float lifeSteal;
+   private float healthRecoverySpeed;
+   private float healthRecoveryTimer;
+   private float healthRecoveryDuration;
+
+   private float dodge;
+   [Header("Actions and Events")]
+   public static Action<Vector2> onAttackDodged;
 
     [Header("Elements")]
     [SerializeField] private Slider healthSlider;
@@ -53,10 +61,20 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
     // Update is called once per frame
     private void Update()
     {
+        if (health < maxHealth)
+        {
+          RecoverHealth();
+        }
     }
 
     public void TakeDamage(int damage)
     {
+        if(ShouldDodge())
+        {
+            onAttackDodged?.Invoke(transform.position);
+            Debug.Log("Player dodged the attack!");
+            return;
+        }
         float realDamage = damage * Mathf.Clamp (1-(armor / 1000), 0,10000) ; 
         realDamage = Mathf.Min(realDamage, health);
         health -= realDamage;
@@ -71,6 +89,25 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
         if (health <= 0)
         {
             PassAway();
+        }
+    }
+
+    private bool ShouldDodge()
+    {
+        return Random.Range(0f, 100f) < dodge;
+    }
+
+    private void RecoverHealth()
+    {
+        healthRecoveryTimer += Time.deltaTime;
+
+        if (healthRecoveryTimer >= healthRecoveryDuration)
+        {
+        
+            healthRecoveryTimer = 0f; // Reset the timer
+            float healthToAdd = Mathf.Min(.1f, maxHealth - health); // Calculate the health to add, ensuring it doesn't exceed maxHealth
+            health += healthToAdd; 
+            UpdateUI(); 
         }
     }
 
@@ -105,5 +142,9 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
 
         armor = playerStatsManager.GetStatValue(Stat.Armor);
         lifeSteal = playerStatsManager.GetStatValue(Stat.LifeSteal) / 100;
+        dodge = playerStatsManager.GetStatValue(Stat.Dodge) ;
+
+        healthRecoverySpeed = Mathf.Max(0.0001f, playerStatsManager.GetStatValue(Stat.HealthRecoverySpeed) );
+        healthRecoveryDuration = 1f / healthRecoverySpeed;
     }
 }

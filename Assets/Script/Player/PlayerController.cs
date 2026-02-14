@@ -28,12 +28,15 @@ public class PlayerController : MonoBehaviour, IPlayerStatsDependency
         //rig.linearVelocity = Vector2.right ; // Set the initial velocity to the right at 5 units per second
     }
 
-    // Update is called once per frame
     private void FixedUpdate()
     {
-       
+        if (!playerJoystick.gameObject.activeInHierarchy)
+        {
+            rig.linearVelocity = Vector2.zero;
+            return;
+        }
 
-        rig.linearVelocity = playerJoystick.GetMoveVector()* moveSpeed * Time.deltaTime;
+        rig.linearVelocity = playerJoystick.GetMoveVector() * moveSpeed * Time.deltaTime;
     }
 
     private void Update()

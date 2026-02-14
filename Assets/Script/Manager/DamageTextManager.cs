@@ -12,11 +12,13 @@ public class DamageTextManager : MonoBehaviour
     private void Awake()
     {
         Enemy.onDamageTaken += EnemyHitCallback;
+        PlayerHealth.onAttackDodged += AttackDodgeCallback;
     }
 
     private void OnDestroy()
     {
         Enemy.onDamageTaken -= EnemyHitCallback;
+        PlayerHealth.onAttackDodged -= AttackDodgeCallback;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -51,7 +53,18 @@ public class DamageTextManager : MonoBehaviour
         Vector3 spawnPosition = enemyPosition + Vector2.up * 1.5f;
         damageTextInstance.transform.position = spawnPosition;
 
-        damageTextInstance.Animate(damage, isCriticalHit);
+        damageTextInstance.Animate(damage.ToString(), isCriticalHit);
+
+        LeanTween.delayedCall(1, () => damageTextEffectPool.Release(damageTextInstance));
+    }
+
+    private void AttackDodgeCallback(Vector2 playerPosition)
+    {
+        DamageTextEffect damageTextInstance = damageTextEffectPool.Get();
+        Vector3 spawnPosition = playerPosition + Vector2.up * 1.5f;
+        damageTextInstance.transform.position = spawnPosition;
+
+        damageTextInstance.Animate("Dodge", false);
 
         LeanTween.delayedCall(1, () => damageTextEffectPool.Release(damageTextInstance));
     }
