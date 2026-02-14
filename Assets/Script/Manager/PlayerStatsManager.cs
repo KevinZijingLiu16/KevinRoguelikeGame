@@ -58,7 +58,7 @@ public class PlayerStatsManager : MonoBehaviour
     public float GetStatValue(Stat stat)
     {
         float value = playerStats[stat] + addends[stat];
-        return addends[stat];
+        return value;
     }
     private void UpdatePlayerStats()
     {

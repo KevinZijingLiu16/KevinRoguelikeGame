@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,14 +9,40 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
     [Header("Health Settings")]
 
     [SerializeField] int baseMaxHealth = 100;
-    private int maxHealth;
+    private float maxHealth;
 
-    private int health;
+    private float health;
+   private float armor;
+
+   private float lifeSteal;
 
     [Header("Elements")]
     [SerializeField] private Slider healthSlider;
 
     [SerializeField] private TextMeshProUGUI healthText;
+
+    private void Awake()
+    {
+       Enemy.onDamageTaken += EnemyTookDamageCallback;
+    }
+
+    private void OnDestroy()
+    {
+        Enemy.onDamageTaken -= EnemyTookDamageCallback;
+    }
+
+    private void EnemyTookDamageCallback(int damage, Vector2 enemyPos, bool isCriticalHit)
+    {
+       if (health >= maxHealth) return;
+
+         float lifeStealAmount = damage * lifeSteal;
+         float heathToAdd = Mathf.Min(lifeStealAmount, maxHealth - health);
+
+            health += heathToAdd;
+
+            UpdateUI();
+    
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
@@ -30,8 +57,11 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
 
     public void TakeDamage(int damage)
     {
-        int realDamage = Mathf.Min(damage, health);
+        float realDamage = damage * Mathf.Clamp (1-(armor / 1000), 0,10000) ; 
+        realDamage = Mathf.Min(realDamage, health);
         health -= realDamage;
+
+        Debug.Log($"Player took {realDamage} damage");
         // Vibrate on health drop
         OnViboration();
         // Debug.Log($"Player took {realDamage} damage. Remaining health: {health}");
@@ -51,9 +81,9 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
 
     private void UpdateUI()
     {
-        float healthBarValue = (float)health / maxHealth;
+        float healthBarValue = health / maxHealth;
         healthSlider.value = healthBarValue;
-        healthText.text = health.ToString();
+        healthText.text = $"{(int)health} / {(int)maxHealth}";
     }
 
     private void OnViboration()
@@ -72,5 +102,8 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
 
         health = maxHealth;
         UpdateUI();
+
+        armor = playerStatsManager.GetStatValue(Stat.Armor);
+        lifeSteal = playerStatsManager.GetStatValue(Stat.LifeSteal) / 100;
     }
 }

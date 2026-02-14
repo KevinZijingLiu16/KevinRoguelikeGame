@@ -1345,7 +1345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &225615479
 Transform:
   m_ObjectHideFlags: 0
@@ -2748,7 +2748,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.5
+  m_fontSize: 32.45
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -20984,7 +20984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1491580435
 Transform:
   m_ObjectHideFlags: 0
@@ -21042,7 +21042,7 @@ MonoBehaviour:
   aimLerp: 1
   animator: {fileID: 1491580436}
   damage: 1
-  attackDelay: 0.05
+  attackDelay: 0.25
   shootingPoint: {fileID: 2105951464}
   bulletPrefab: {fileID: 2636497128677442673, guid: be59699e74bd32343863e578e62df8e9, type: 3}
 --- !u!1001 &1509074351
@@ -23585,7 +23585,7 @@ GameObject:
   - component: {fileID: 2116354074}
   - component: {fileID: 2116354073}
   m_Layer: 7
-  m_Name: mainCharater
+  m_Name: ZhongKui
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23623,8 +23623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerJoystick: {fileID: 10047245}
-  keyboardInputMultiplier: 100
-  moveSpeed: 3
+  baseMoveSpeed: 5
 --- !u!50 &2116354069
 Rigidbody2D:
   serializedVersion: 5
