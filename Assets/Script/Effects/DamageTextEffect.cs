@@ -22,9 +22,11 @@ public class DamageTextEffect : MonoBehaviour
     public void Animate(string damage, bool isCriticalHit)
     {
         damageText.text = damage.ToString();
-        damageText.color = isCriticalHit ? Color.yellow : Color.white;
 
         animator.Play("DamageTextAnimation");
+
+        damageText.color = isCriticalHit ? Color.yellow : Color.white;
+        
     }
 
 

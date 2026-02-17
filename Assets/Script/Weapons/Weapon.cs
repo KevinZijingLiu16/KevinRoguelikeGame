@@ -1,25 +1,38 @@
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
+using System;
+using Random = UnityEngine.Random;
 
-public abstract class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour, IPlayerStatsDependency
 {
+    [field: SerializeField] public WeaponDataSO WeaponData { get; private set; }
+
     [Header("Weapon Settings")]
-    [SerializeField] private float range;
-
+    [SerializeField] protected float range;
     [SerializeField] protected LayerMask enemyMask;
-
+    [Header("Weapon Attack")]
+    [SerializeField]protected int damage;
+    [SerializeField] protected float attackDelay;
+    protected float attackTimer;
+    [Header("Weapon Critical Hit")]
+    protected int criticalChance;
+    protected float criticalPercent;
+    [Header("Weapon Animation")]
     [SerializeField] protected float aimLerp;
     [SerializeField] protected Animator animator;
 
-    [SerializeField] protected int damage;
-    [SerializeField] protected float attackDelay;
+ 
+    [Header("Level")]
+    [field: SerializeField] public int Level { get; private set; }
 
-    protected float attackTimer;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
         // Debug.Log("Weapon Initialized: " + gameObject.name);
+            //damage = baseDamage;
     }
 
     // Update is called once per frame
@@ -59,10 +72,10 @@ public abstract class Weapon : MonoBehaviour
     {
         isCriticalHit = false;
 
-        if(Random.Range(0, 101) < 50) 
+        if(Random.Range(0, 101) <= criticalChance) 
         {
             isCriticalHit = true;
-            return damage * 2; // Critical hit deals double damage
+            return Mathf.RoundToInt(damage * criticalPercent);
         }
         return damage;
     }
@@ -72,4 +85,25 @@ public abstract class Weapon : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, range);
     }
+
+    public abstract void UpdateStats(PlayerStatsManager playerStatsManager);
+
+    protected void ConfigueStats()
+    {
+        float multiplier = 1 + (float)Level /3;
+        if (WeaponData == null)
+        {
+            Debug.LogWarning($"WeaponData is not assigned on {gameObject.name}");
+            return;
+        }
+
+        damage = Mathf.RoundToInt(WeaponData.GetStatValue(Stat.Attack)* multiplier);
+        attackDelay = 1f / (WeaponData.GetStatValue(Stat.AttackSpeed) * multiplier);
+
+        criticalChance = Mathf.RoundToInt(WeaponData.GetStatValue(Stat.CriticalChance) * multiplier);
+        criticalPercent = WeaponData.GetStatValue(Stat.CriticalPercent) * multiplier;
+        if(WeaponData.Prefab.GetType() == typeof(RangeWeapon))
+            range = WeaponData.GetStatValue(Stat.Range) * multiplier;
+    }
+
 }
