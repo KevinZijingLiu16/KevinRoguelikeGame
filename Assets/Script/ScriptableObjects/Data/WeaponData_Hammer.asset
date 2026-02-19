@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d4d874eef6ceda479195223f3070ec8, type: 3}
   m_Name: WeaponData_Hammer
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: 
-  <Sprite>k__BackingField: {fileID: 0}
-  <PurchasePrice>k__BackingField: 0
-  <Prefab>k__BackingField: {fileID: 0}
-  attack: 0
-  attackSpeed: 0
-  criticalChance: 0
-  criticalPercent: 0
-  range: 0
+  <Name>k__BackingField: Hammer
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 85f6569d1e606f04db32bc5778ab23f2, type: 3}
+  <PurchasePrice>k__BackingField: 100
+  <Prefab>k__BackingField: {fileID: 4947006530844611343, guid: 703bcdc1a2c68694497ea56a38fa86c8, type: 3}
+  attack: 10
+  attackSpeed: 2
+  criticalChance: 5
+  criticalPercent: 1.5
+  range: 4

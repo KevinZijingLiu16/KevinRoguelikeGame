@@ -28,17 +28,7 @@ public abstract class Weapon : MonoBehaviour, IPlayerStatsDependency
 
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
-    {
-        // Debug.Log("Weapon Initialized: " + gameObject.name);
-            //damage = baseDamage;
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-    }
+  
 
     protected Enemy GetClosestEnemy()
     {
@@ -106,4 +96,9 @@ public abstract class Weapon : MonoBehaviour, IPlayerStatsDependency
             range = WeaponData.GetStatValue(Stat.Range) * multiplier;
     }
 
+    public void UpgradeTo(int targetLevel)
+    {
+        Level = targetLevel;
+        ConfigueStats();
+    }
 }
