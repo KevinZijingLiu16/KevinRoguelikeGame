@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: d8f71dc840460c149987704bb62704a9
+guid: 5be8d9353204f0e469f3cfeb1003e382
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1525059270686974403
-    second: UIBG2png_0
+      213: 7996764984596990864
+    second: ChatGPT Image Feb 20, 2026, 10_50_23 PM_0
+  - first:
+      213: 1493274429090581050
+    second: ChatGPT Image Feb 20, 2026, 10_50_23 PM_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,23 +129,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UIBG2png_0
+      name: ChatGPT Image Feb 20, 2026, 10_50_23 PM_0
       rect:
         serializedVersion: 2
-        x: 304
-        y: 95
-        width: 932
-        height: 857
+        x: 11
+        y: 0
+        width: 1494
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c1a6ba93591a2510800000000000000
-      internalID: 1525059270686974403
+      spriteID: 09b8f2382673afe60800000000000000
+      internalID: 7996764984596990864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChatGPT Image Feb 20, 2026, 10_50_23 PM_1
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 343
+        width: 219
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3a4e1a7e2d29b410800000000000000
+      internalID: 1493274429090581050
       vertices: []
       indices: 
       edges: []
@@ -151,7 +176,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 659f773d9a43594449f5c4f16f327f49
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +185,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      UIBG2png_0: 1525059270686974403
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

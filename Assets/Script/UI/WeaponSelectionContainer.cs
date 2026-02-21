@@ -5,6 +5,9 @@ using Unity.VisualScripting;
 using System.Collections.Generic;
 using System.Collections;
 using NaughtyAttributes;
+using UnityEngine.InputSystem;
+using System;
+using System.Linq;
 
 public class WeaponSelectionContainer : MonoBehaviour
 {
@@ -13,10 +16,14 @@ public class WeaponSelectionContainer : MonoBehaviour
     [SerializeField] private Image icon;
     [SerializeField] private Image[] levelDependentImage;
     [SerializeField] private Outline outline;
+    [SerializeField] private Transform statsContainerParent;
+    [SerializeField] private StatsContainer statsContainerPrefab;
+    [SerializeField] private Sprite statIcon;
+    //private WeaponDataSO weaponData;
 
     [field: SerializeField] public Button Button { get; private set; }
 
-    public void Configure(Sprite sprite, string name, int level)
+    public void Configure(Sprite sprite, string name, int level, WeaponDataSO weaponData)
     {
         nameText.text = name;
         icon.sprite = sprite;
@@ -29,6 +36,17 @@ public class WeaponSelectionContainer : MonoBehaviour
 
         if (outline != null)
             outline.effectColor = ColorHolder.GetOutlineColor(level);
+
+            ConfigureStatsContainer(weaponData);
+    }
+
+    private void ConfigureStatsContainer(WeaponDataSO weaponData)
+    {
+        foreach(KeyValuePair<Stat, float> kvp in weaponData.BaseStats)
+        {
+            StatsContainer statsContainerInstance = Instantiate(statsContainerPrefab, statsContainerParent);
+            statsContainerInstance.Configure(statIcon, Enums.FormatStatName(kvp.Key), kvp.Value.ToString());
+        }
     }
     public void Select()
     {

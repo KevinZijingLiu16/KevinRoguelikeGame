@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d8f71dc840460c149987704bb62704a9
+guid: 7567d3f23fd1eb84eb57dd8825dc8316
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1525059270686974403
-    second: UIBG2png_0
+      213: 2785939603975540625
+    second: WeaponSelectionBG_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UIBG2png_0
+      name: WeaponSelectionBG_0
       rect:
         serializedVersion: 2
-        x: 304
-        y: 95
-        width: 932
-        height: 857
+        x: 0
+        y: 0
+        width: 1536
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c1a6ba93591a2510800000000000000
-      internalID: 1525059270686974403
+      spriteID: 19f87ac2f45a9a620800000000000000
+      internalID: 2785939603975540625
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 659f773d9a43594449f5c4f16f327f49
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      UIBG2png_0: 1525059270686974403
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
