@@ -1,0 +1,625 @@
+fileFormatVersion: 2
+guid: 810e307a3b3dc3c45a9e57a94f5615cf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7803352419700268593
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_0
+  - first:
+      213: -2856337525204027571
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_1
+  - first:
+      213: 8384713655136799225
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_2
+  - first:
+      213: -1395847934388009263
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_3
+  - first:
+      213: -381170219549530560
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_4
+  - first:
+      213: 7070836412943966365
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_5
+  - first:
+      213: 6389880546370760315
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_6
+  - first:
+      213: -6764954905964770062
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_7
+  - first:
+      213: 7976473129857869756
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_8
+  - first:
+      213: -5005081919066114561
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_9
+  - first:
+      213: -2558035083325156032
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_10
+  - first:
+      213: 3847487354349383974
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_11
+  - first:
+      213: 9133851441195998899
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_12
+  - first:
+      213: -6326467775755367030
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_13
+  - first:
+      213: -6832672251542385415
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_14
+  - first:
+      213: 5696372292339128848
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_15
+  - first:
+      213: 948681557623699115
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_16
+  - first:
+      213: -635069376647034052
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_17
+  - first:
+      213: -1142077571860698763
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_18
+  - first:
+      213: -3026119114349054631
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_19
+  - first:
+      213: 7382315243405937289
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_20
+  - first:
+      213: 5631314219826499978
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_21
+  - first:
+      213: -5612688662190301024
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_22
+  - first:
+      213: -8738451429055875405
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_23
+  - first:
+      213: 1503731186825977782
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_24
+  - first:
+      213: 3747910833527733389
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_25
+  - first:
+      213: 6913408617640991269
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_26
+  - first:
+      213: -5884339718034209234
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_27
+  - first:
+      213: -2822129049132246512
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_28
+  - first:
+      213: 598912103561793044
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_29
+  - first:
+      213: 5617148423533057259
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_30
+  - first:
+      213: -689225069863763711
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_31
+  - first:
+      213: 7561886441770681788
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_32
+  - first:
+      213: -4678322041996525153
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_33
+  - first:
+      213: 1830798523614224286
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_34
+  - first:
+      213: 7614063310017541323
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_35
+  - first:
+      213: 8349781389209163661
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_36
+  - first:
+      213: -793318981753695067
+    second: ChatGPT Image Feb 22, 2026, 11_03_07 AM_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: StatIconSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 768
+        width: 136
+        height: 208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01fdbf482ebe47d43b55edb8ae49cb2e
+      internalID: 1768096911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatIconSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 792
+        width: 197
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2f16d54c20bc8a45a16d4c4e8272cbf
+      internalID: -1569370625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatIconSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 789
+        width: 167
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d7e63bfe701c5144bd88c572eb7172b
+      internalID: 1487568344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatIconSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 792
+        width: 176
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03d0d71c5d668b499aa0e530a7cfc48
+      internalID: -939699722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatIconSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 539
+        width: 165
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f78ee55fbc4a86f4aadcde7d2a2f097f
+      internalID: -947825304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatIconSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 571
+        width: 130
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e316cbe5e27cfcd4e8485e2871589b07
+      internalID: -112172103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatIconSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 560
+        width: 155
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c84a9a50086af0d4f92b40ddcf0598b0
+      internalID: 1483500715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatIconSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 548
+        width: 160
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d901b0e6be0426498d4c6e84a208c78
+      internalID: -1759679677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatIconSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 333
+        width: 142
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9319de93d76dc754f86777df1091b6ba
+      internalID: -269830966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatIconSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 334
+        width: 166
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc1fd5cdcbfe5d449bbbb7253f44097
+      internalID: 1404808327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatIconSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 361
+        width: 122
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ad4544b4667804fbab1cddb2c2750f
+      internalID: 1682787397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatIconSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 339
+        width: 148
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d354a5ef19f2e34b8ddf9e9a17c7dba
+      internalID: 1499248671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatIconSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 107
+        width: 165
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93d0877d2fcb38f44b715aa262547c41
+      internalID: -1419362379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatIconSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 105
+        width: 180
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c2a204c9c9689d40922ab7d5ee5cf46
+      internalID: 944478827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatIconSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 100
+        width: 130
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aabe7b35d6d256b4a9eb00d8384a6fb4
+      internalID: 1073911750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatIconSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 111
+        width: 160
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 3, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ad230d417ed32c488cc90be6d1dbc0c
+      internalID: -52323794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      StatIconSpriteSheet_0: 1768096911
+      StatIconSpriteSheet_1: -1569370625
+      StatIconSpriteSheet_10: 1682787397
+      StatIconSpriteSheet_11: 1499248671
+      StatIconSpriteSheet_12: -1419362379
+      StatIconSpriteSheet_13: 944478827
+      StatIconSpriteSheet_14: 1073911750
+      StatIconSpriteSheet_15: -52323794
+      StatIconSpriteSheet_2: 1487568344
+      StatIconSpriteSheet_3: -939699722
+      StatIconSpriteSheet_4: -947825304
+      StatIconSpriteSheet_5: -112172103
+      StatIconSpriteSheet_6: 1483500715
+      StatIconSpriteSheet_7: -1759679677
+      StatIconSpriteSheet_8: -269830966
+      StatIconSpriteSheet_9: 1404808327
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

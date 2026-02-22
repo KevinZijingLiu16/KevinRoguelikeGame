@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee8d4e6c1ebc2947a699d809c194a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <WeaponData>k__BackingField: {fileID: 0}
+  <WeaponData>k__BackingField: {fileID: 11400000, guid: 66cfccb2ab959894abb2ab81fafc627d, type: 2}
   range: 4
   enemyMask:
     serializedVersion: 2
