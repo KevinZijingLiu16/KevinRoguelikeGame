@@ -72,14 +72,14 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
         if(ShouldDodge())
         {
             onAttackDodged?.Invoke(transform.position);
-            Debug.Log("Player dodged the attack!");
+          //  Debug.Log("Player dodged the attack!");
             return;
         }
         float realDamage = damage * Mathf.Clamp (1-(armor / 1000), 0,10000) ; 
         realDamage = Mathf.Min(realDamage, health);
         health -= realDamage;
 
-        Debug.Log($"Player took {realDamage} damage");
+      //  Debug.Log($"Player took {realDamage} damage");
         // Vibrate on health drop
         OnViboration();
         // Debug.Log($"Player took {realDamage} damage. Remaining health: {health}");

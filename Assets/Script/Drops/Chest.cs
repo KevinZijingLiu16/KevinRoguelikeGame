@@ -6,6 +6,7 @@ public class Chest : MonoBehaviour, ICollectable
 {
     [Header("Action")]
     public static Action onCollected;
+    
 
     [Header("Animation")]
     [SerializeField] private Animator animator;

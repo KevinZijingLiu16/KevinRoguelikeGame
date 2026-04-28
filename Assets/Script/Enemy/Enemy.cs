@@ -95,7 +95,7 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    private void PassAway()
+   public void PassAway()
     {
         onPassedAway?.Invoke(transform.position);
         passAwayParticles.transform.SetParent(null);

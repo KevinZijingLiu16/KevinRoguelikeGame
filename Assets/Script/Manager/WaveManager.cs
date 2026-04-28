@@ -130,7 +130,8 @@ public class WaveManager : MonoBehaviour, IGameStateListener
     [Button("ClearAllEnemies")]
     private void DefeatAllEnemies()
     { 
-        transform.Clear();
+       foreach (Enemy enemy in transform.GetComponentsInChildren<Enemy>())
+       enemy.PassAway();
     }
 
     private void StartNextWave()

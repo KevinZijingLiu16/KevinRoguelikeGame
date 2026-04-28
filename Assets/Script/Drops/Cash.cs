@@ -10,5 +10,6 @@ public class Cash : DroppableCurreny
     protected override void Collectted()
     {
         onCollected?.Invoke(this);
+        
     }
 }
