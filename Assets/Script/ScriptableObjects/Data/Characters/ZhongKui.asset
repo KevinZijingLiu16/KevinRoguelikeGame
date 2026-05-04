@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b75a73282595980488dc1ac6c480a142, type: 3}
-  m_Name: CharacterData
+  m_Name: ZhongKui
   m_EditorClassIdentifier: 
   <Name>k__BackingField: ZhongKui
   <Sprite>k__BackingField: {fileID: 21300000, guid: b2c151811d4bb19449fc34bcbd73d7f0, type: 3}

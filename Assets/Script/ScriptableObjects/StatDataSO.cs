@@ -4,6 +4,7 @@ using UnityEngine;
 public class StatIconDataSO : ScriptableObject
 {
    [field: SerializeField] public StatIcon[] StatIcons { get; private set; }
+   
 }
 
 [System.Serializable]

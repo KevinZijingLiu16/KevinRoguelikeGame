@@ -98,10 +98,8 @@ public abstract class Enemy : MonoBehaviour
    public void PassAway()
     {
         onPassedAway?.Invoke(transform.position);
-        passAwayParticles.transform.SetParent(null);
-        // or passAwayParticles.transform.parent == null;
-        passAwayParticles.Play();
-        Destroy(gameObject);
+        PassAwayAfterWave();
+      
     }
 
     protected void FacePlayer()
@@ -118,6 +116,15 @@ public abstract class Enemy : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x = finalScaleX;
         transform.localScale = scale;
+    }
+    public void PassAwayAfterWave()
+    {
+          passAwayParticles.transform.SetParent(null);
+        // or passAwayParticles.transform.parent == null;
+        passAwayParticles.Play();
+        Destroy(gameObject);
+
+
     }
 
     private void OnDrawGizmosSelected()
