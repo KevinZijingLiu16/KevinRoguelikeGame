@@ -10,10 +10,12 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
     [Header("Elements")]
     [SerializeField] private PlayerStatsManager playerStatsManager;
     [SerializeField] private UpgradeContainer[] upgradeContainers;
-
+      [SerializeField] private GameObject upgradeContainersParents;
     [Header("Settings")]
     public int chestCollected ;
-
+    [Header("Chest Related")]
+    [SerializeField] private ChestObjectContainer chestContainerPrefab;
+    [SerializeField] private Transform chestContainerParent;
     void Awake()
     {
         Chest.onCollected += ChestCollectedCallback;
@@ -47,12 +49,19 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
 
         private void ShowObject()
     {
-        Debug.Log("Showing object selection screen");
+        chestCollected--;
+        upgradeContainersParents.SetActive(false);
 
+        ObjectDataSO[] objectDatas = ResourcesManager.Objects;
+        ObjectDataSO randomObjectData = objectDatas[Random.Range(0, objectDatas.Length)];
+        ChestObjectContainer chestInstance = Instantiate(chestContainerPrefab, chestContainerParent);
+        chestInstance.Configure(randomObjectData);
     }
     [Button]    
     private void ConfigureUpgradeContainers()
     {
+         upgradeContainersParents.SetActive(true);
+
         for (int i = 0; i < upgradeContainers.Length; i++)
         {
         

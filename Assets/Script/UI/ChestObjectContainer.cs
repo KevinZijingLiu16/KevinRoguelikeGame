@@ -24,7 +24,7 @@ public class ChestObjectContainer : MonoBehaviour
 
     public void Configure( ObjectDataSO objectData)
     {
-        nameText.text = name ;
+        nameText.text = objectData.Name;
         icon.sprite = objectData.Icon;
         Color imageColor = ColorHolder.GetColor(objectData.Rarity);
         Color.RGBToHSV(imageColor, out float h, out float s, out float v);
