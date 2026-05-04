@@ -21,10 +21,10 @@ public class WeaponSelectionContainer : MonoBehaviour
 
     [field: SerializeField] public Button Button { get; private set; }
 
-    public void Configure(Sprite sprite, string name, int level, WeaponDataSO weaponData)
+    public void Configure(WeaponDataSO weaponData, int level)
     {
-        nameText.text = name + " (Lv." + (level + 1) + ")";
-        icon.sprite = sprite;
+        nameText.text = weaponData.Name + " (Lv." + (level + 1) + ")";
+        icon.sprite = weaponData.Sprite;
         Color imageColor = ColorHolder.GetColor(level);
         Color.RGBToHSV(imageColor, out float h, out float s, out float v);
         nameText.color = Color.HSVToRGB(h, Mathf.Min(s + 0.8f, 1f), v * 0.5f);
