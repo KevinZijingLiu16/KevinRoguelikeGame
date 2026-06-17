@@ -72,6 +72,13 @@ public class PlayerLevel : MonoBehaviour
 
     }
 
+    public bool HasPendingLevelUps()
+    {
+        if (DEBUG)
+            return true;
+        return levelsEarnedThisWave > 0;
+    }
+
     public bool HasLeveledUp()
     {
         if (DEBUG)

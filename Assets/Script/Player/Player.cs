@@ -45,6 +45,11 @@ public class Player : MonoBehaviour
         return (Vector2)transform.position + collider.offset;
     }
 
+    public bool HasPendingLevelUps()
+    {
+        return playerLevel.HasPendingLevelUps();
+    }
+
     public bool HasLeveledUp()
     {
         return playerLevel.HasLeveledUp();
