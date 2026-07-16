@@ -1392,7 +1392,7 @@ MonoBehaviour:
   cashPrefab: {fileID: 8343583064459921011, guid: 3b86c963f630e994c97e9870efbe9d80, type: 3}
   chestPrefab: {fileID: 1888342121566117479, guid: 15e5d1ed0dca1b14385fad0d3cb35db7, type: 3}
   cashDropChance: 13
-  chestDropChance: 1
+  chestDropChance: 5
 --- !u!1 &221949911
 GameObject:
   m_ObjectHideFlags: 0
@@ -23745,7 +23745,6 @@ GameObject:
   - component: {fileID: 1788375182}
   - component: {fileID: 1788375181}
   - component: {fileID: 1788375180}
-  - component: {fileID: 1788375183}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -23812,7 +23811,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: '155
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 96dbcb2895353a24da88e6ddd7b0b8f2, type: 2}
   m_sharedMaterial: {fileID: -1051536056453776857, guid: 96dbcb2895353a24da88e6ddd7b0b8f2, type: 2}
@@ -23892,18 +23893,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788375178}
   m_CullTransparentMesh: 1
---- !u!114 &1788375183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788375178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073dfe9c864221a41a2682915ebcf02d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CurrencyText
 --- !u!1 &1804638210
 GameObject:
   m_ObjectHideFlags: 0

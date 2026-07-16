@@ -21,11 +21,12 @@ public class ChestObjectContainer : MonoBehaviour
 
     [field: SerializeField] public Button TakeButton { get; private set; }
     [field: SerializeField] public Button RecycleButton { get; private set; }
-
+    public TextMeshProUGUI recycleButtonText ;
     public void Configure( ObjectDataSO objectData)
     {
         nameText.text = objectData.Name;
         icon.sprite = objectData.Icon;
+        recycleButtonText.text =  objectData.RecyclePrice.ToString();
         Color imageColor = ColorHolder.GetColor(objectData.Rarity);
         Color.RGBToHSV(imageColor, out float h, out float s, out float v);
         nameText.color = Color.HSVToRGB(h, Mathf.Min(s + 0.8f, 1f), v * 0.5f);
