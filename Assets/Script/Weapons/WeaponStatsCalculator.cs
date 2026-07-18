@@ -22,4 +22,10 @@ public static class WeaponStatsCalculator
         }
         return calculateStats;
     }
+
+    public static int GetPurchasePrice(WeaponDataSO weaponData, int level)
+    {
+        float multiplier = 1 + (float)level / 3;
+        return Mathf.RoundToInt(weaponData.PurchasePrice * multiplier);
+    }
 }

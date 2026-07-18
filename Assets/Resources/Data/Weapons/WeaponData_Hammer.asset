@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d4d874eef6ceda479195223f3070ec8, type: 3}
-  m_Name: WeaponData_Bow
+  m_Name: WeaponData_Hammer
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Bow
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 7f22e3f2e14219d41980fb3c769d6c0d, type: 3}
-  <PurchasePrice>k__BackingField: 100
-  <Prefab>k__BackingField: {fileID: 327351437606016057, guid: 68730c36b5d042048bc8892960cc608b, type: 3}
-  attack: 10
-  attackSpeed: 2
+  <Name>k__BackingField: Hammer
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 85f6569d1e606f04db32bc5778ab23f2, type: 3}
+  <PurchasePrice>k__BackingField: 80
+  <Prefab>k__BackingField: {fileID: 4947006530844611343, guid: 703bcdc1a2c68694497ea56a38fa86c8, type: 3}
+  attack: 15
+  attackSpeed: 1
   criticalChance: 5
   criticalPercent: 1.5
-  range: 4
+  range: 2

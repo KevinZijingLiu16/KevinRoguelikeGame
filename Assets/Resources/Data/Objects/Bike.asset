@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjectDataSO
   <Name>k__BackingField: Wind
   <Icon>k__BackingField: {fileID: -4693932192084691647, guid: 5fcaa73b845b43e45965f29558bd1ff3, type: 3}
-  <Price>k__BackingField: 100
+  <Price>k__BackingField: 125
   <RecyclePrice>k__BackingField: 75
   <Rarity>k__BackingField: 0
   statDatas:
