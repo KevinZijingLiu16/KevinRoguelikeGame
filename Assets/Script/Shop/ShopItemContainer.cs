@@ -11,7 +11,12 @@ public class ShopItemContainer : MonoBehaviour
     [SerializeField] private Image[] levelDependentImage;
     [SerializeField] private Outline outline;
     [SerializeField] private Transform statsContainerParent;
-     [field: SerializeField] public Button PurchaseButton { get; private set; }
+     [field: SerializeField] public Image LockImage { get; private set; }
+
+      //  [SerializeField] private Button lockButton;
+    [SerializeField] private Sprite lockSprite, unlockSprite;
+
+   public bool IsLocked { get; private set; } = false;
 
     public void Configure(WeaponDataSO weaponData, int level)
     {
@@ -71,5 +76,22 @@ public class ShopItemContainer : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void LockButtonCallback()
+    {
+       IsLocked = !IsLocked;
+        UpdateLockVisual();
+    }
+    private void UpdateLockVisual()
+    {
+        if (IsLocked)
+        {
+            LockImage.sprite = lockSprite;
+        }
+        else
+        {
+            LockImage.sprite = unlockSprite;
+        }
     }
 }

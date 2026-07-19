@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour, IGameStateListener
 {
     [SerializeField] private Transform containerParent;
 
     [SerializeField] private ShopItemContainer shopItemContainerPrefab;
+
+    [SerializeField] private Button lockButton;
+    [SerializeField] private Sprite lockSprite, unlockSprite;
 
 
 

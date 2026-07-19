@@ -1264,6 +1264,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopManager
   containerParent: {fileID: 910574630}
   shopItemContainerPrefab: {fileID: 710422056497865129, guid: cb345f67e25705845a1657222cacba28, type: 3}
+  lockButton: {fileID: 0}
+  lockSprite: {fileID: 0}
+  unlockSprite: {fileID: 0}
 --- !u!1 &177254506
 GameObject:
   m_ObjectHideFlags: 0
@@ -8486,11 +8489,11 @@ RectTransform:
   - {fileID: 399395084}
   m_Father: {fileID: 220144722}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_SizeDelta: {x: 0, y: 462}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &910574631
 MonoBehaviour:
   m_ObjectHideFlags: 0
