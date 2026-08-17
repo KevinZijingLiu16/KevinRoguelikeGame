@@ -1,9 +1,15 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System;
+
 
 public class CurrencyManager : MonoBehaviour
 {
     public static CurrencyManager instance;
     [field: SerializeField] public int Currrency { get; private set; }
+
+    public static Action onUpdated;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {       
@@ -27,19 +33,35 @@ public class CurrencyManager : MonoBehaviour
     {
         
     }
+    [NaughtyAttributes.Button("Add 500 Currency")]
+    private void Add500Currency()
+    {
+        AddCurrency(500);
+    }
 
     public void AddCurrency(int amount)
     {
         Currrency += amount;
         UpdateText();
+        onUpdated?.Invoke();
     }
 
-    private void UpdateText()
+   public void UpdateText()
     {
        CurrencyText[] currencyTexts = FindObjectsByType<CurrencyText>();
         foreach(CurrencyText currencyText in currencyTexts)
         {
             currencyText.UpdateText(Currrency.ToString());
         }
+    }
+
+    public bool HasEnoughCurrency(int amount)
+    {
+        return Currrency >= amount;
+    }
+
+    public void UseCoins(int amount)
+    {
+        AddCurrency(-amount);
     }
 }

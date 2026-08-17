@@ -41,7 +41,7 @@ public class WeaponSelectionManager : MonoBehaviour, IGameStateListener
                 Debug.LogWarning("No weapon selected, cannot add to player");
                 return;
             }
-            playerWeapons.AddWeapon(selectedWeapon, initialWeaponLevel);
+            playerWeapons.TryAddWeapon(selectedWeapon, initialWeaponLevel);
             selectedWeapon = null;
             initialWeaponLevel = 0;
             break;  
