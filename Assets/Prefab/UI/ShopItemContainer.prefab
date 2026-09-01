@@ -442,7 +442,7 @@ MonoBehaviour:
   - {fileID: 588957059608006653}
   outline: {fileID: 3006692032904254356}
   statsContainerParent: {fileID: 4683419155178656856}
-  <PurchaseButton>k__BackingField: {fileID: 1010972733516028301}
+  purchaseButton: {fileID: 1010972733516028301}
   <LockImage>k__BackingField: {fileID: 724527514740050708}
   lockSprite: {fileID: -5620155193319629329, guid: 5bf7f0050ae64884fb73a265bed13e87, type: 3}
   unlockSprite: {fileID: 7451771499657765821, guid: e6e0c4110e86bfe48812aeb60cdf44fc, type: 3}

@@ -15,7 +15,7 @@ public class ShopItemContainer : MonoBehaviour
     [SerializeField] private Transform statsContainerParent;
 
     public static Action<ShopItemContainer, int> onPurchase;
-     [field: SerializeField] public Button PurchaseButton { get; private set; }
+     [SerializeField] private Button purchaseButton ;
      [field: SerializeField] public Image LockImage { get; private set; }
 
       //  [SerializeField] private Button lockButton;
@@ -27,6 +27,35 @@ public class ShopItemContainer : MonoBehaviour
 
    public WeaponDataSO WeaponData { get; private set; }
    public ObjectDataSO ObjectData { get; private set; }
+  
+
+    private void Awake()
+    {
+        CurrencyManager.onUpdated += CurrencyUpdatedCallback;
+    }
+    private void OnDestroy()
+    {
+        CurrencyManager.onUpdated -= CurrencyUpdatedCallback;
+    }
+
+    private void CurrencyUpdatedCallback()
+    {
+       int itemPrice;
+       if(WeaponData != null)
+        {
+            itemPrice = WeaponStatsCalculator.GetPurchasePrice(WeaponData, weaponLevel);
+        }
+        else if (ObjectData != null)
+        {
+            itemPrice = ObjectData.Price;
+        }
+        else
+        {
+            return;
+        }
+
+        purchaseButton.interactable = CurrencyManager.instance.HasEnoughCurrency(itemPrice);
+    }
 
     public void Configure(WeaponDataSO weaponData, int level)
     {
@@ -52,8 +81,8 @@ public class ShopItemContainer : MonoBehaviour
 
         Dictionary<Stat,float> calculatedStats = WeaponStatsCalculator.GetStats(weaponData, level);
             ConfigureStatsContainer(calculatedStats);
-         PurchaseButton.onClick.AddListener(Purchase);
-            PurchaseButton.interactable = CurrencyManager.instance.HasEnoughCurrency(weaponPrice);
+         purchaseButton.onClick.AddListener(Purchase);
+            purchaseButton.interactable = CurrencyManager.instance.HasEnoughCurrency(weaponPrice);
     }
         public void Configure(ObjectDataSO objectData)
     {
@@ -78,9 +107,9 @@ public class ShopItemContainer : MonoBehaviour
 
        //Dictionary<Stat,float> calculatedStats = WeaponStatsCalculator.GetStats(weaponData, level);
             ConfigureStatsContainer(objectData.BaseStats);
-              PurchaseButton.onClick.AddListener(Purchase);
+              purchaseButton.onClick.AddListener(Purchase);
             
-            PurchaseButton.interactable = CurrencyManager.instance.HasEnoughCurrency(objectData.Price);
+            purchaseButton.interactable = CurrencyManager.instance.HasEnoughCurrency(objectData.Price);
     }
     private void ConfigureStatsContainer(Dictionary<Stat,float> stats)
     {

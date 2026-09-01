@@ -60,7 +60,7 @@ public class CurrencyManager : MonoBehaviour
         return Currrency >= amount;
     }
 
-    public void UseCoins(int amount)
+    public void UseCurrency(int amount)
     {
         AddCurrency(-amount);
     }

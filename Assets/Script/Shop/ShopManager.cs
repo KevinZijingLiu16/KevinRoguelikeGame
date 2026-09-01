@@ -86,7 +86,7 @@ private void Awake()
     public void Reroll()
     {
         Configure();
-        CurrencyManager.instance.UseCoins(rerollPrice);
+        CurrencyManager.instance.UseCurrency(rerollPrice);
     }
 
     private void UpdateRerollVisual()
@@ -107,14 +107,28 @@ private void Awake()
             TryPurchaseWeapon(container, level);
            
         }
+        else 
+        {
+            PurchaseObject(container);
+        }
        
     }
     public void TryPurchaseWeapon(ShopItemContainer container, int level)
     {
         if(playerWeapons.TryAddWeapon(container.WeaponData, level))
         {
-            
+            int price = WeaponStatsCalculator.GetPurchasePrice(container.WeaponData, level);
+            CurrencyManager.instance.UseCurrency(price);
+
+            Destroy(container.gameObject);
         }
+    }
+
+    private void PurchaseObject(ShopItemContainer container)
+    {
+       playerObjects.AddObject(container.ObjectData);
+        CurrencyManager.instance.UseCurrency(container.ObjectData.Price);
+        Destroy(container.gameObject);
     }
 }
 

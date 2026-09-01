@@ -6665,7 +6665,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 1000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 96dbcb2895353a24da88e6ddd7b0b8f2, type: 2}
   m_sharedMaterial: {fileID: -1051536056453776857, guid: 96dbcb2895353a24da88e6ddd7b0b8f2, type: 2}
@@ -9613,7 +9613,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 1000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 96dbcb2895353a24da88e6ddd7b0b8f2, type: 2}
   m_sharedMaterial: {fileID: -1051536056453776857, guid: 96dbcb2895353a24da88e6ddd7b0b8f2, type: 2}
@@ -28250,7 +28250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9867f4f6a4b065148ad1b92b45246c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CurrencyManager
-  <Currrency>k__BackingField: 0
+  <Currrency>k__BackingField: 1000
 --- !u!4 &2079453639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4842820572150334936, guid: 4a165742f9e7a1647a9cc4697ea4be2d, type: 3}
