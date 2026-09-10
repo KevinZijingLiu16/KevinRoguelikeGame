@@ -1,7 +1,7 @@
-﻿using System;
-using System.Text.RegularExpressions;
+﻿using UnityEngine;
 using UnityEditor;
-using UnityEngine;
+using System.Text.RegularExpressions;
+using System;
 
 namespace NaughtyAttributes.Editor
 {

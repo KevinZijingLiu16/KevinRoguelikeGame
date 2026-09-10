@@ -1,5 +1,5 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEditor;
 
 namespace NaughtyAttributes.Editor
 {
@@ -37,7 +37,7 @@ namespace NaughtyAttributes.Editor
             EditorGUI.CurveField(
                 rect,
                 property,
-                curveRangeAttribute.Color == EColor.Clear ? Color.green : curveRangeAttribute.Color.GetColor(),
+                curveRangeAttribute.Color.GetColor(),
                 curveRanges,
                 label);
 

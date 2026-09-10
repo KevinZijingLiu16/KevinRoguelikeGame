@@ -6,20 +6,17 @@ namespace NaughtyAttributes.Test
     {
         [Foldout("Integers")]
         public int int0;
-
         [Foldout("Integers")]
         public int int1;
 
         [Foldout("Floats")]
         public float float0;
-
         [Foldout("Floats")]
         public float float1;
 
         [Foldout("Sliders")]
         [MinMaxSlider(0, 1)]
         public Vector2 slider0;
-
         [Foldout("Sliders")]
         [MinMaxSlider(0, 1)]
         public Vector2 slider1;
@@ -29,7 +26,6 @@ namespace NaughtyAttributes.Test
 
         [Foldout("Transforms")]
         public Transform trans0;
-
         [Foldout("Transforms")]
         public Transform trans1;
     }

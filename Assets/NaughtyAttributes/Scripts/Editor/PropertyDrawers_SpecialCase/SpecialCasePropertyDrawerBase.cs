@@ -45,7 +45,6 @@ namespace NaughtyAttributes.Editor
         }
 
         protected abstract void OnGUI_Internal(Rect rect, SerializedProperty property, GUIContent label);
-
         protected abstract float GetPropertyHeight_Internal(SerializedProperty property);
     }
 

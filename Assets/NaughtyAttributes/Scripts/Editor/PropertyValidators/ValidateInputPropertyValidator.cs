@@ -1,6 +1,6 @@
-using System;
-using System.Reflection;
 using UnityEditor;
+using System.Reflection;
+using System;
 
 namespace NaughtyAttributes.Editor
 {
